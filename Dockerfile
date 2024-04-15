@@ -10,7 +10,7 @@ COPY package.json .
 # Instale as dependências do projeto
 RUN npm install
 
-# Copie todo o conteúdo do diretório atual para o diretório de trabalho no contêiner
+# Copie todo o conteúdo do diretório atual (exceto .env) para o diretório de trabalho no contêiner
 COPY . .
 
 # Exponha a porta em que a aplicação está sendo executada
