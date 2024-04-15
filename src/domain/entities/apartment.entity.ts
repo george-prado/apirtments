@@ -1,8 +1,7 @@
-/* eslint-disable prettier/prettier */
 export class Apartment {
   constructor(
     public id: number,
-    public address: Address,
+    public addressId: number,
     public price: number,
     public rooms: RoomDetails,
     public photos: string[],
@@ -11,6 +10,7 @@ export class Apartment {
 
 export class Address {
   constructor(
+    public addressId: number,
     public streetName: string,
     public streetNumber: string,
     public neighborhood: string,
