@@ -9,9 +9,10 @@ datasource db {
 
 model Apartment {
   id            Int        @id @default(autoincrement())
-  address       Address
+  address       Address    @relation(fields: [addressId], references: [id])
+  addressId     Int
   price         Float
-  rooms         RoomDetails
+  rooms         RoomDetails[]
   photos        String[]
 }
 
@@ -20,6 +21,7 @@ model Address {
   streetName    String
   streetNumber  String
   neighborhood  String
+  apartments    Apartment[]
 }
 
 model RoomDetails {
@@ -34,4 +36,6 @@ model RoomDetails {
   gotBalcony            Boolean
   gotCarSpace           Boolean
   insideGatedCommunity  Boolean
+  apartment             Apartment @relation(fields: [apartmentId], references: [id])
+  apartmentId           Int
 }
